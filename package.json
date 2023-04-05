@@ -1,6 +1,6 @@
 {
+  "name": "@scandium-oy/ionic-selectable",
   "version": "4.9.0",
-  "name": "ionic-selectable",
   "title": "Ionic Selectable",
   "description": "An Ionic component similar to Ionic Select, that allows to search items, including async search, group, add, edit, delete items, and much more.",
   "author": {
@@ -11,7 +11,7 @@
   "homepage": "https://github.com/eakoriakin/ionic-selectable",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eakoriakin/ionic-selectable.git"
+    "url": "https://github.com/mmarkus3/ionic-selectable.git"
   },
   "bugs": {
     "url": "https://github.com/eakoriakin/ionic-selectable/issues"
@@ -28,9 +28,9 @@
     "select",
     "selectable"
   ],
-  "main": "ionic-selectable.umd.js",
-  "module": "ionic-selectable.js",
-  "types": "ionic-selectable.d.ts",
+  "main": "scandium-oy-ionic-selectable.umd.js",
+  "module": "scandium-oy-ionic-selectable.js",
+  "types": "scandium-oy-ionic-selectable.d.ts",
   "peerDependencies": {
     "@ionic/angular": ">=5.0.0"
   },
@@ -54,8 +54,7 @@
     "@ionic-native/status-bar": "5.0.0-beta.15",
     "@ionic/angular": "~5.0.4",
     "@ionic/angular-toolkit": "~2.0.0",
-    "@types/jasmine": "~3.6.0",
-    "@types/jasminewd2": "2.0.3",
+    "@types/jasminewd2": "2.0.10",
     "@types/node": "13.9.0",
     "codelyzer": "^6.0.0",
     "cordova-android": "7.0.0",
@@ -69,7 +68,7 @@
     "gulp": "4.0.2",
     "gulp-json-editor": "2.4.2",
     "gulp-rename": "1.4.0",
-    "gulp-sass": "4.1.0",
+    "gulp-sass": "5.1.0",
     "gulp-uglify-es": "1.0.4",
     "ionicons": "~5.0.1",
     "jasmine-core": "~3.6.0",
@@ -98,7 +97,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gulp": "gulp",
-    "build.ng": "ng-packagr -p package.json"
+    "build.ng": "ng-packagr -p package.json",
+    "publish": "npm run gulp && cd dist && npm publish --access public"
   },
   "cordova": {
     "plugins": {

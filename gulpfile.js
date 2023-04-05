@@ -3,12 +3,13 @@ const gulp = require('gulp'),
   rename = require('gulp-rename'),
   jsonEditor = require('gulp-json-editor'),
   fs = require('fs'),
-  sass = require('gulp-sass'),
+  sass = require('gulp-sass')(require('sass')),
   path = require('path'),
   ngPackagr = require('ng-packagr'),
   ngPackagePath = path.normalize(path.join(__dirname, './ng-package.json')),
   tsConfigPath = path.normalize(path.join(__dirname, './tsconfig.dist.json')),
-  packageConfig = JSON.parse(fs.readFileSync('./package.json')),
+  rootName = 'ionic-selectable',
+  jsFileName = 'scandium-oy-ionic-selectable',
   paths = {
     gulp: 'node_modules/gulp/bin/gulp.js',
     ngPackagr: 'node_modules/ng-packagr/cli/main.js',
@@ -16,21 +17,21 @@ const gulp = require('gulp'),
       root: 'images/',
     },
     src: {
-      css: `src/app/components/${packageConfig.name}/${packageConfig.name}.component.scss`,
+      css: `src/app/components/${rootName}/${rootName}.component.scss`,
     },
     dist: {
       root: 'dist/',
       package: 'dist/package.json',
       bundles: {
         root: 'dist/bundles/',
-        file: `dist/bundles/${packageConfig.name}.umd.js`,
-        mapFile: `dist/bundles/${packageConfig.name}.umd.js.map`,
-        minFile: `${packageConfig.name}.umd.min.js`,
+        file: `dist/bundles/${jsFileName}.umd.js`,
+        mapFile: `dist/bundles/${jsFileName}.umd.js.map`,
+        minFile: `${jsFileName}.umd.min.js`,
       },
       esm2015: {
         root: 'dist/esm2015/',
-        file: `dist/esm2015/${packageConfig.name}.js`,
-        minFile: `${packageConfig.name}.min.js`,
+        file: `dist/esm2015/${jsFileName}.js`,
+        minFile: `${jsFileName}.min.js`,
       },
     },
   };
@@ -43,7 +44,7 @@ async function copyCss() {
       fs.createReadStream(paths.src.css).pipe(
         fs
           .createWriteStream(
-            `${paths.dist.esm2015.root}${packageConfig.name}.component.scss`
+            `${paths.dist.esm2015.root}${rootName}.component.scss`
           )
           .on('error', reject)
           .on('close', resolve)
@@ -59,7 +60,7 @@ async function copyCss() {
             outputStyle: 'compressed',
           })
         )
-        .pipe(rename(`${packageConfig.name}.component.min.css`))
+        .pipe(rename(`${rootName}.component.min.css`))
         .pipe(gulp.dest(paths.dist.esm2015.root))
         .on('error', reject)
         .on('end', resolve);
