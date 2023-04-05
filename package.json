@@ -1,6 +1,6 @@
 {
   "name": "@scandium-oy/ionic-selectable",
-  "version": "4.9.0",
+  "version": "4.9.1",
   "title": "Ionic Selectable",
   "description": "An Ionic component similar to Ionic Select, that allows to search items, including async search, group, add, edit, delete items, and much more.",
   "author": {
@@ -32,7 +32,7 @@
   "module": "scandium-oy-ionic-selectable.js",
   "types": "scandium-oy-ionic-selectable.d.ts",
   "peerDependencies": {
-    "@ionic/angular": ">=5.0.0"
+    "@ionic/angular": ">=7.0.0"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.1102.6",

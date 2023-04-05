@@ -10,6 +10,7 @@ import { IonicSelectableFooterTemplateDirective } from './ionic-selectable-foote
 import { IonicSelectableGroupEndTemplateDirective } from './ionic-selectable-group-end-template.directive';
 import { IonicSelectableGroupTemplateDirective } from './ionic-selectable-group-template.directive';
 import { IonicSelectableHeaderTemplateDirective } from './ionic-selectable-header-template.directive';
+import { IonicSelectableIconTemplateDirective } from './ionic-selectable-icon-template.directive';
 import { IonicSelectableItemEndTemplateDirective } from './ionic-selectable-item-end-template.directive';
 import { IonicSelectableItemIconTemplateDirective } from './ionic-selectable-item-icon-template.directive';
 import { IonicSelectableItemTemplateDirective } from './ionic-selectable-item-template.directive';
@@ -19,7 +20,6 @@ import { IonicSelectablePlaceholderTemplateDirective } from './ionic-selectable-
 import { IonicSelectableSearchFailTemplateDirective } from './ionic-selectable-search-fail-template.directive';
 import { IonicSelectableTitleTemplateDirective } from './ionic-selectable-title-template.directive';
 import { IonicSelectableValueTemplateDirective } from './ionic-selectable-value-template.directive';
-import { IonicSelectableIconTemplateDirective } from './ionic-selectable-icon-template.directive';
 
 @Component({
   selector: 'ionic-selectable',
