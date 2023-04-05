@@ -393,7 +393,6 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
 
   /**
    * Determines whether Ionic [InfiniteScroll](https://ionicframework.com/docs/api/components/infinite-scroll/InfiniteScroll/) is enabled.
-   * **Note**: Infinite scroll cannot be used together with virtual scroll.
    * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#hasinfinitescroll).
    *
    * @default false
@@ -401,27 +400,6 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    */
   @Input()
   hasInfiniteScroll = false;
-
-  /**
-   * Determines whether Ionic [VirtualScroll](https://ionicframework.com/docs/api/components/virtual-scroll/VirtualScroll/) is enabled.
-   * **Note**: Virtual scroll cannot be used together with infinite scroll.
-   * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#hasvirtualscroll).
-   *
-   * @default false
-   * @memberof IonicSelectableComponent
-   */
-  @Input()
-  hasVirtualScroll = false;
-
-  /**
-   * See Ionic VirtualScroll [approxItemHeight](https://ionicframework.com/docs/api/components/virtual-scroll/VirtualScroll/).
-   * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#virtualscrollapproxitemheight).
-   *
-   * @default '40px'
-   * @memberof IonicSelectableComponent
-   */
-  @Input()
-  virtualScrollApproxItemHeight = '40px';
 
   /**
    * A placeholder for Searchbar.
@@ -786,17 +764,6 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   itemIconTemplate: TemplateRef<any>;
   @ContentChild(IonicSelectableIconTemplateDirective, { read: TemplateRef })
   iconTemplate: TemplateRef<any>;
-
-  /**
-   * See Ionic VirtualScroll [headerFn](https://ionicframework.com/docs/api/components/virtual-scroll/VirtualScroll/).
-   * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#virtualscrollheaderfn).
-   *
-   * @memberof IonicSelectableComponent
-   */
-  @Input()
-  virtualScrollHeaderFn = () => {
-    return null;
-  }
 
   constructor(
     private _modalController: ModalController,
@@ -1219,7 +1186,6 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
 
   private _setItems(items: any[]) {
     // It's important to have an empty starting group with empty items (groups[0].items),
-    // because we bind to it when using VirtualScroll.
     // See https://github.com/eakoriakin/ionic-selectable/issues/70.
     let groups: any[] = [{
       items: items || []
@@ -1338,8 +1304,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     this._isMD = !this._isIos;
     this._hasObjects = !this._isNullOrWhiteSpace(this.itemValueField);
     // Grouping is supported for objects only.
-    // Ionic VirtualScroll has it's own implementation of grouping.
-    this._hasGroups = Boolean(this._hasObjects && this.groupValueField && !this.hasVirtualScroll);
+    this._hasGroups = Boolean(this._hasObjects && this.groupValueField);
 
     if (this.ionItem) {
       this._ionItemElement = this._element.nativeElement.closest('ion-item');

@@ -51,9 +51,6 @@ const routes: Routes = [{
   path: 'scroll-to-top',
   loadChildren: './pages/scroll-to-top/scroll-to-top.module#ScrollToTopPageModule'
 }, {
-  path: 'virtual-scroll',
-  loadChildren: './pages/virtual-scroll/virtual-scroll.module#VirtualScrollPageModule'
-}, {
   path: 'should-store-item-value',
   loadChildren: './pages/should-store-item-value/should-store-item-value.module#ShouldStoreItemValuePageModule'
 }, {
@@ -98,9 +95,6 @@ const routes: Routes = [{
 }, {
   path: 'item-icon-template',
   loadChildren: './pages/item-icon-template/item-icon-template.module#ItemIconTemplatePageModule'
-}, {
-  path: 'grouping-virtual-scroll',
-  loadChildren: './pages/grouping-virtual-scroll/grouping-virtual-scroll.module#GroupingVirtualScrollPageModule'
 }, {
   path: 'grouping',
   loadChildren: './pages/grouping/grouping.module#GroupingPageModule'

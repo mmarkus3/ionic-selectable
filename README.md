@@ -52,7 +52,6 @@ An Ionic component similar to [Ionic Select](https://ionicframework.com/docs/api
 - [Search by several item fields](https://stackblitz.com/edit/ionic-selectable-v4-on-search-event?file=app/pages/home/home.html)
 - [Forms](https://stackblitz.com/edit/ionic-selectable-v4-form-control?file=app/pages/home/home.html)
 - [InfiniteScroll](https://stackblitz.com/edit/ionic-selectable-v4-infinite-scroll?file=app/pages/home/home.html)
-- [VirtualScroll](https://stackblitz.com/edit/ionic-selectable-v4-virtual-scroll?file=app/pages/home/home.html)
 - [Templates](../../wiki#templates)
 - [Grouping items](../..//wiki#grouping)
 - [Editing, adding and deleting items](../../wiki#editing)
