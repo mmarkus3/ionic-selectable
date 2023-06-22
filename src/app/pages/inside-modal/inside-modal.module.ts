@@ -13,19 +13,16 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    IonicSelectableModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [
-    InsideModalPage,
-    ModalComponent
-  ],
-  entryComponents: [
-    ModalComponent
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        IonicSelectableModule,
+        RouterModule.forChild(routes)
+    ],
+    declarations: [
+        InsideModalPage,
+        ModalComponent
+    ]
 })
 export class InsideModalPageModule { }

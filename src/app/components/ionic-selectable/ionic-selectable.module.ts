@@ -57,19 +57,18 @@ const components = [IonicSelectableComponent, IonicSelectableModalComponent],
   ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule
-  ],
-  declarations: [
-    ...components,
-    ...directives
-  ],
-  exports: [
-    ...components,
-    ...directives
-  ],
-  entryComponents: components
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule
+    ],
+    declarations: [
+        ...components,
+        ...directives
+    ],
+    exports: [
+        ...components,
+        ...directives
+    ]
 })
 export class IonicSelectableModule { }
