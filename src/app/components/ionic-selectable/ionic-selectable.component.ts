@@ -1360,7 +1360,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       this._addItemObservable.unsubscribe();
     }
 
-    return new Promise(function (resolve, reject) {
+    return new Promise<void>(function (resolve, reject) {
       // Complete callback isn't fired for some reason,
       // so unsubscribe in both success and fail cases.
       self._addItemObservable = self.onItemsChange.asObservable().subscribe(() => {
@@ -1436,7 +1436,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       this._deleteItemObservable.unsubscribe();
     }
 
-    return new Promise(function (resolve, reject) {
+    return new Promise<void>(function (resolve, reject) {
       // Complete callback isn't fired for some reason,
       // so unsubscribe in both success and fail cases.
       self._deleteItemObservable = self.onItemsChange.asObservable().subscribe(() => {
@@ -1636,7 +1636,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   scrollToTop(): Promise<any> {
     const self = this;
 
-    return new Promise(function (resolve, reject) {
+    return new Promise<void>(function (resolve, reject) {
       if (!self._isOpened) {
         reject('IonicSelectable content cannot be scrolled.');
         return;
@@ -1658,7 +1658,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   scrollToBottom(): Promise<any> {
     const self = this;
 
-    return new Promise(function (resolve, reject) {
+    return new Promise<void>(function (resolve, reject) {
       if (!self._isOpened) {
         reject('IonicSelectable content cannot be scrolled.');
         return;

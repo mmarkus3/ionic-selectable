@@ -28,9 +28,9 @@ const gulp = require('gulp'),
         mapFile: `dist/bundles/${jsFileName}.umd.js.map`,
         minFile: `${jsFileName}.umd.min.js`,
       },
-      esm2015: {
-        root: 'dist/esm2015/',
-        file: `dist/esm2015/${jsFileName}.js`,
+      esm2022: {
+        root: 'dist/fesm2022/',
+        file: `dist/fesm2022/${jsFileName}.mjs`,
         minFile: `${jsFileName}.min.js`,
       },
     },
@@ -44,7 +44,7 @@ async function copyCss() {
       fs.createReadStream(paths.src.css).pipe(
         fs
           .createWriteStream(
-            `${paths.dist.esm2015.root}${rootName}.component.scss`
+            `${paths.dist.esm2022.root}${rootName}.component.scss`
           )
           .on('error', reject)
           .on('close', resolve)
@@ -61,7 +61,7 @@ async function copyCss() {
           })
         )
         .pipe(rename(`${rootName}.component.min.css`))
-        .pipe(gulp.dest(paths.dist.esm2015.root))
+        .pipe(gulp.dest(paths.dist.esm2022.root))
         .on('error', reject)
         .on('end', resolve);
     }),
@@ -83,21 +83,21 @@ async function minifyJS() {
   return Promise.all([
     new Promise(function (resolve, reject) {
       gulp
-        .src(paths.dist.esm2015.file)
+        .src(paths.dist.esm2022.file)
         .pipe(uglify())
         .on('error', reject)
-        .pipe(rename(paths.dist.esm2015.minFile))
-        .pipe(gulp.dest(paths.dist.esm2015.root))
+        .pipe(rename(paths.dist.esm2022.minFile))
+        .pipe(gulp.dest(paths.dist.esm2022.root))
         .on('error', reject)
         .on('end', resolve);
     }),
     new Promise(function (resolve, reject) {
       gulp
-        .src(paths.dist.esm2015.file)
+        .src(paths.dist.esm2022.file)
         .pipe(uglify())
         .on('error', reject)
-        .pipe(rename(paths.dist.esm2015.minFile))
-        .pipe(gulp.dest(paths.dist.esm2015.root))
+        .pipe(rename(paths.dist.esm2022.minFile))
+        .pipe(gulp.dest(paths.dist.esm2022.root))
         .on('error', reject)
         .on('end', resolve);
     }),
@@ -105,7 +105,7 @@ async function minifyJS() {
     // Remove source files.
     fs.unlinkSync(paths.dist.bundles.file);
     fs.unlinkSync(paths.dist.bundles.mapFile);
-    fs.unlinkSync(paths.dist.esm2015.file);
+    fs.unlinkSync(paths.dist.esm2022.file);
   });
 }
 
@@ -116,7 +116,7 @@ async function modifyPackageJson() {
       .pipe(
         jsonEditor(function (json) {
           json.main = `bundles/${paths.dist.bundles.minFile}`;
-          json.es2015 = `esm2015/${paths.dist.esm2015.minFile}`;
+          json.es2015 = `fesm2022/${paths.dist.esm2022.minFile}`;
           delete json.cordova;
           delete json.devDependencies;
           delete json.dependencies;

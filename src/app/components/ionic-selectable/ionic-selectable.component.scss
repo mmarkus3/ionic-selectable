@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $icon-color: #999;
 $placeholder-color: #999;
 $padding: 16px;
@@ -233,11 +235,11 @@ $item-padding-end-ios: 8px;
 
   &.ionic-selectable-modal-can-clear.ionic-selectable-modal-is-multiple {
     .footer .col:first-child {
-      padding-right: $padding / 2;
+      padding-right: math.div($padding, 2);
     }
 
     .footer .col:last-child {
-      padding-left: $padding / 2;
+      padding-left: math.div($padding, 2);
     }
   }
 
