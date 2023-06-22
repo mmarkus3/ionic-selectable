@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { PortService } from '../../services';
 import { Port } from '../../types';
 
@@ -11,12 +11,12 @@ import { Port } from '../../types';
 export class MinMaxSelectionPage implements OnInit {
   ports: Port[];
   port: Port;
-  portsControl: FormControl;
-  form: FormGroup;
+  portsControl: UntypedFormControl;
+  form: UntypedFormGroup;
 
   constructor(
     private portService: PortService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) { }
 
   ngOnInit() {

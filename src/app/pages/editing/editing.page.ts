@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { IonicSelectableComponent } from '../../components/ionic-selectable/ionic-selectable.module';
 import { PortService } from '../../services';
 import { Country, Port } from '../../types';
@@ -13,14 +13,14 @@ export class EditingPage implements OnInit {
   ports: Port[];
   countries: Country[];
   port: Port;
-  portForm: FormGroup;
-  portNameControl: FormControl;
-  portCountryControl: FormControl;
+  portForm: UntypedFormGroup;
+  portNameControl: UntypedFormControl;
+  portCountryControl: UntypedFormControl;
   @ViewChild('portComponent') portComponent: IonicSelectableComponent;
 
   constructor(
     private portService: PortService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { IonicSelectableComponent } from '../../components/ionic-selectable/ionic-selectable.module';
 import { PortService } from '../../services';
 import { Country, Port } from '../../types';
@@ -14,13 +14,13 @@ export class FooterTemplatePage implements OnInit {
   countries: Country[];
   port: Port;
   @ViewChild('portComponent') portComponent: IonicSelectableComponent;
-  portForm: FormGroup;
-  portNameControl: FormControl;
-  portCountryControl: FormControl;
+  portForm: UntypedFormGroup;
+  portNameControl: UntypedFormControl;
+  portCountryControl: UntypedFormControl;
 
   constructor(
     private portService: PortService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { IonicSelectableComponent } from '../../components/ionic-selectable/ionic-selectable.module';
 import { PortService } from '../../services';
@@ -14,15 +14,15 @@ export class AddingOnSearchFailAsyncPage implements OnInit {
   ports: Port[];
   countries: Country[];
   port: Port;
-  portForm: FormGroup;
-  portNameControl: FormControl;
-  portCountryControl: FormControl;
+  portForm: UntypedFormGroup;
+  portNameControl: UntypedFormControl;
+  portCountryControl: UntypedFormControl;
   portsSubscription: Subscription;
   @ViewChild('portComponent') portComponent: IonicSelectableComponent;
 
   constructor(
     private portService: PortService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) { }
 
   ngOnInit() {
